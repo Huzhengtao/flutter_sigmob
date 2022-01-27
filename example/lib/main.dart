@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    // initPlatformState();
   }
 
   FlutterSigmob sigmob;
@@ -54,13 +54,13 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               RaisedButton(
                 onPressed: () {
-                  FlutterSigmob.init("15899", "566e4931fc46092d");
+                  initPlatformState();
                 },
                 child: Text("初始化"),
               ),
               RaisedButton(
                 onPressed: () {
-                  sigmob.playVideoAd("ede5fa91dad");
+                  sigmob.playVideoAd("ede5fa91dad","0",null);
                 },
                 child: Text("视频广告"),
               ),

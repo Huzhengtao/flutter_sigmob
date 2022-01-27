@@ -1,14 +1,15 @@
 import 'dart:async';
-import 'sigmob_event_handler.dart';
+
 import 'package:flutter/services.dart';
 
-class FlutterSigmob  extends SigmobEventHandler{
-  static const MethodChannel _channel =
-      const MethodChannel('flutter_sigmob');
+import 'sigmob_event_handler.dart';
+
+class FlutterSigmob extends SigmobEventHandler {
+  static const MethodChannel _channel = const MethodChannel('flutter_sigmob');
 
   final void Function(SigmobEvents, Map<String, dynamic>) listener;
 
-  FlutterSigmob(this.listener): super(listener) {
+  FlutterSigmob(this.listener) : super(listener) {
     if (listener != null) {
       _channel.setMethodCallHandler(handleEvent);
     }
@@ -20,8 +21,9 @@ class FlutterSigmob  extends SigmobEventHandler{
   }
 
   /// 播放视频广告
-  Future<void> playVideoAd(String placementId,int uid,Map ectraInfo) async {
-    _channel.invokeMethod('playVideoAd', [placementId,uid,ectraInfo]);
+  Future<void> playVideoAd(String placementId, int uid, Map ectraInfo) async {
+    _channel
+        .invokeMethod('playVideoAd', [placementId, uid?.toString(), ectraInfo]);
   }
 
   /// 加载开屏广告
