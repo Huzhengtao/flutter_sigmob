@@ -2,9 +2,9 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 abstract class SigmobEventHandler {
-  final Function(SigmobEvents, Map) _listener;
+  final Function(SigmobEvents, Map<String, dynamic>) _listener;
 
-  SigmobEventHandler(Function(SigmobEvents, Map) listener) : _listener = listener;
+  SigmobEventHandler(Function(SigmobEvents, Map<String, dynamic>) listener) : _listener = listener;
 
   Future<dynamic> handleEvent(MethodCall call) async {
     switch (call.method) {

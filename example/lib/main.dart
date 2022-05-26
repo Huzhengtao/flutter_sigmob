@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
               ),
               RaisedButton(
                 onPressed: () {
-                  sigmob.playVideoAd("ede5fa91dad","0",null);
+                  sigmob.playVideoAd("ede5fa91dad",0,null);
                 },
                 child: Text("视频广告"),
               ),

@@ -10,9 +10,7 @@ class FlutterSigmob extends SigmobEventHandler {
   final void Function(SigmobEvents, Map<String, dynamic>) listener;
 
   FlutterSigmob(this.listener) : super(listener) {
-    if (listener != null) {
-      _channel.setMethodCallHandler(handleEvent);
-    }
+    _channel.setMethodCallHandler(handleEvent);
   }
 
   /// 初始化
@@ -21,7 +19,7 @@ class FlutterSigmob extends SigmobEventHandler {
   }
 
   /// 播放视频广告
-  Future<void> playVideoAd(String placementId, int uid, Map ectraInfo) async {
+  Future<void> playVideoAd(String placementId, int? uid, Map? ectraInfo) async {
     _channel
         .invokeMethod('playVideoAd', [placementId, uid?.toString(), ectraInfo]);
   }
